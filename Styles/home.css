@@ -1,0 +1,42 @@
+.divBtnTop {
+    display: flex;
+    justify-content: center;
+    color:white;
+}
+.imgBBB {
+    max-width: 200px;
+    max-height: 100%;
+}
+
+#divImgHome {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+#divTxtHome {
+    margin-top: 15px;
+    width: 200px;
+    background-color:rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    font-family: "allroundgothic-text", Arial, Helvetica, sans-serif;
+}
+#divHome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+}
+#div7Logo{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+.divBtnBottom {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    color:white;
+}
