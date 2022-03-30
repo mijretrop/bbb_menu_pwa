@@ -47,11 +47,10 @@ const divDrinkItem = document.getElementById("divDrinkItem");
 const divDrinkImage = document.getElementById("divDrinkImage");
 const imgDrink = document.getElementById("imgDrink");
 const divDrinkDescr = document.getElementById("divDrinkDescr");
-const divDrinkPrice = document.getAnimations("divDrinkPrice");
+const divDrinkPrice = document.getElementById("divDrinkPrice");
 
 
 //#endregion Variables --------------------------------------------
-
 btnFood.onclick = function() {
     divHome.style.display = "none";
     divFood.style.display = "flex";
@@ -105,8 +104,6 @@ async function FoodCategoryBtnClicked(catName) {
         }
     });
 }
-
-
 async function FoodItemBtnClicked(docID) {
    // console.log(docID);
     const docRef = doc(db, "FoodItem", docID);
@@ -117,9 +114,6 @@ async function FoodItemBtnClicked(docID) {
     divFoodDescr.innerHTML += docSnap.data().FoodDescr;
     divFoodPrice.innerHTML = "$" + docSnap.data().FoodCost
     divFoodPrice.style.display = "flex";
-
-
-
     GetFoodImage(docSnap.data().FoodImage);
     } else {
         console.log("No such document!");
@@ -134,19 +128,14 @@ async function GetFoodImage(imageName) {
 
     });
 }
-
-
 //#endregion Food Section-----------------------------------------
 
-
 //#region Drink Section -------------------------------------------
-
 btnDrinkHome.onclick = function() {
     divHome.style.display = "flex";
     divDrink.style.display = "none";
     body.style.backgroundImage="url(Images/leathGreen.jpeg)";
 }
-
 async function LoadDrinkCategories() {
     divDrinkCat.innerHTML = ""
     const q = query(collection(db, "DrinkCat"), orderBy("CatName"), where("Enabled", "==", true));
@@ -199,11 +188,21 @@ async function DrinkBrandBtnClicked(brandName) {
 }
 
 async function DrinkItemBtnClicked(docID) {
-    alert(docID)
     const docRef = doc(db, "DrinkItem", docID);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-        console.log(docSnap.data());
+        //console.log(docSnap.data());
+        divDrinkDescr.innerHTML = "<h3>" + docSnap.data().DrinkName + "</h3>";
+        divDrinkDescr.innerHTML += "<span>Color: </span>";
+        divDrinkDescr.innerHTML += docSnap.data().DrinkColor + "</p>";
+        divDrinkDescr.innerHTML += "<span>Taste: </span>";
+        divDrinkDescr.innerHTML += docSnap.data().DrinkTaste + "</p>";
+        divDrinkDescr.innerHTML += "<span>Aroma: </span>";
+        divDrinkDescr.innerHTML += docSnap.data().DrinkAroma + "</p>";
+        divDrinkDescr.innerHTML += "<span>Finish: </span>";
+        divDrinkDescr.innerHTML += docSnap.data().DrinkFinish;
+        divDrinkPrice.innerHTML = "$" + docSnap.data().DrinkCost;
+        divDrinkPrice.style.display = "flex";
         GetDrinkImage(docSnap.data().DrinkImage)
 
     }
@@ -217,8 +216,5 @@ async function GetDrinkImage(imageName) {
  
      });
  }
-
-//Todo add cost to food/Drink item;
-
 
 //#endregion Drink Section------------------------------------------

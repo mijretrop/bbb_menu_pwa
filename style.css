@@ -152,16 +152,28 @@ body{
 .divDescr {
   margin-top: 30px;
   font-size: 20px;
+  color: rgb(75, 74, 74);
 }
 
 h3 {
+  padding: 3px;
   color: black;
   font-family: "allroundgothic-bold";
+  font-size: 20px;
   background-color: orange;
   min-height: 60px;
-  vertical-align: center ;
-  
+  margin-left: 120px;
+  max-width: 600px;
+  border-radius: 0px 10px 10px 0px;
 }
+span {
+  color: maroon;
+  font-family: "allroundgothic-medium";
+  font-size: 23px;
+
+}
+
+
 
 .price {
   position: absolute;
